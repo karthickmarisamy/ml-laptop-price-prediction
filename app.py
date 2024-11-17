@@ -73,4 +73,4 @@ if submitted:
         model = cloudpickle.load(file)
 
     data_transformed = preprocessor.transform(df)
-    st.write(f"The price of laptop is EURO {model.predict(data_transformed)}")
+    st.write(f"The price of laptop is EURO {round(model.predict(data_transformed))}")
