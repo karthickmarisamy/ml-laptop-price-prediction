@@ -1,6 +1,7 @@
 import streamlit as st
-import pickle
+import cloudpickle
 import pandas as pd
+
 
 # Create a Streamlit form
 st.title("Laptop Data Submission Form")
@@ -66,10 +67,10 @@ if submitted:
     st.subheader("Submitted Data")
     
     with open('preprocessor.pkl', 'rb') as file:
-        preprocessor = pickle.load(file)
+        preprocessor = cloudpickle.load(file)
 
     with open('model.pkl', 'rb') as file:
-        model = pickle.load(file)
+        model = cloudpickle.load(file)
 
     data_transformed = preprocessor.transform(df)
     st.write(f"The price of laptop is EURO {model.predict(data_transformed)}")
